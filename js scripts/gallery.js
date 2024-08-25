@@ -9,3 +9,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // This whole part bassicly goes through each saved images and creates a img element for them all
 });
+
