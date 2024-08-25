@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing</title>
+</head>
+
+<body>
+    <section class="container">
+        <div class="toolbar">
+            <!-- Creates a input for color picker, -->
+            <label for="stroke">Color:</label>
+            <input type="color" id="stroke" name="stroke">
+            <!-- Creates a input for Line width -->
+            <label for="LineWidth">Line width:</label>
+            <input type="range" id="LineWidth" name="Linewidth" value="1" min="1">
+            <span id="LineWidthValue">1</span>
+            <!-- Creates the clear button -->
+            <button id="clear">Clear</button>
+            <button id="submit">Submit</button>
+            <label id="promptLabel" for="prompt">Prompt:</label>
+        </div>
+        <!-- Sets up the canvas relative to its width and heigh choosen -->
+        <div class="drawing-board">
+            <canvas class="canvas" id="drawingCanvas" width="1000" height="800"></canvas>
+        </div>
+    </section>
+    <script src="./js scripts/draw.js"></script>
+    <script src="./js scripts/prompt.js"></script>
+
+</body>
+
+</html>

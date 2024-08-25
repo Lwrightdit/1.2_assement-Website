@@ -1,0 +1,9 @@
+/* Css reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Creates border around canvas */
+.canvas{
+    border: solid, 2px, black;
+}
