@@ -39,7 +39,7 @@ const prompts = [
     "Depict a fantasy castle.",
     "Sketch a vibrant street market.",
     "Create an artwork inspired by a famous song.",
-    "Draw a whimsical circus scene.",
+    "Draw a whimsical carnival.",
     "Illustrate a dramatic weather event.",
     "Design a character from a sci-fi story.",
     "Depict a magical potion or elixir.",
@@ -70,12 +70,7 @@ const prompts = [
     "Illustrate a whimsical dream sequence.",
     "Design a surrealist artwork.",
     "Depict a hidden treasure.",
-    "Create a vibrant carnival scene.",
-    "Draw an enchanting fairy garden.",
-    "Illustrate a bustling marketplace.",
-    "Design a fantasy creature's costume.",
-    "Depict an epic fantasy battle.",
-    "Create a detailed portrait of a pet.",
+    "Create a vibrant underwater reef scene.",
     "Draw an intricate ancient ruin.",
     "Illustrate a serene zen garden.",
     "Design a futuristic landscape.",
@@ -85,7 +80,6 @@ const prompts = [
     "Illustrate an elaborate clockwork mechanism.",
     "Design a fantastical flying machine.",
     "Depict a surreal dreamscape with floating islands.",
-    "Create a vibrant underwater reef scene.",
     "Draw a detailed historical setting.",
     "Illustrate a magical spell or enchantment.",
     "Design a futuristic space vehicle.",
@@ -101,12 +95,7 @@ const prompts = [
     "Create a mythical underwater creature.",
     "Draw a serene mountain landscape.",
     "Illustrate an enchanted forest creature.",
-    "Design a futuristic robot.",
-    "Depict a vibrant festival scene.",
-    "Create a whimsical house in a tree.",
-    "Draw a mythical creature in battle.",
-    "Illustrate a vibrant street parade.",
-    "Design a unique alien landscape.",
+    "Design a whimsical house in a tree.",
     "Depict a fantasy potion bottle.",
     "Create a detailed clock tower.",
     "Draw a mythical creature's lair.",
@@ -168,6 +157,7 @@ const prompts = [
     "Illustrate a unique alien city.",
     "Design a legendary enchanted artifact."
 ];
+
 // Sets up libary of prompts
 
 const promptLabel = document.getElementById('promptLabel');
@@ -187,7 +177,7 @@ function updatePromptAndClearStorage() {
     const lastUpdate = localStorage.getItem('lastUpdate');
     const now = new Date().getTime();
 
-    if (!lastUpdate || now - lastUpdate > 86400000) { // Checks if 24 hours has past, checks in ms so 86400000ms is eqaul to 24hours
+    if (!lastUpdate || now - lastUpdate > 43200000) { // Checks if 12 hours has past, checks in ms so 43200000ms is eqaul to 12hours
         const newPrompt = getRandomPrompt(); // Gets the new prompt
         promptLabel.textContent = `Prompt: ${newPrompt}`; //Adds it to label
         // Stores the new prompts and time

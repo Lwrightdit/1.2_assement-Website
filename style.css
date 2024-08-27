@@ -3,7 +3,51 @@
     margin: 0;
     padding: 0;
 }
-/* Creates border around canvas */
-.canvas{
+/* Backround stuff for body */
+body{
+    background-image: url(./assests/colorful-line-doodle-seamless-pattern-creative-art-children-design-with-basic-shapes-childish-scribble-shape-vector-illustration-white-background_551826-21479.avif);
+}
+/* gallery */
+.gallery-image{
     border: solid, 2px, black;
+}
+
+/* NAV BAR */
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 3px #000000;
+    padding: 1rem;
+  }
+  
+  .nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .nav-list a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 2rem;
+    margin: .5rem;
+    padding: .5rem;
+    text-decoration: none;
+  }
+
+  /* For drawing page */
+  section{
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  section label{
+    color: #000000;
+    font-size: 30px;
+    background-color: #F08080;
+    border-radius: 10px;
+  }
+  .canvas{
+    border: solid, 2px, #F08080;
+    margin-right: 20px;
 }

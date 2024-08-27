@@ -11,31 +11,27 @@
 <body>
     <nav>
         <ul class="nav-list">
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="draw_page.html">DRAWING</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="draw_page.html">DRAWING</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
         </ul>
-      </nav>
+    </nav>
     <section class="container">
         <div class="toolbar">
+            <!-- Create prompt label -->
+            <label id="promptLabel" for="prompt">Prompt:</label>
             <!-- Creates a input for color picker, -->
-            <label for="stroke">Color:</label>
             <input type="color" id="stroke" name="stroke">
             <!-- Creates a input for Line width -->
-            <label for="LineWidth">Line width:</label>
             <input type="range" id="LineWidth" name="Linewidth" value="1" min="1">
             <span id="LineWidthValue">1</span>
             <!-- Creates the clear button -->
             <button id="clear">Clear</button>
             <!-- Creates the submit button -->
             <button id="submit">Submit</button>
-            <!-- Create prompt label -->
-            <label id="promptLabel" for="prompt">Prompt:</label>
         </div>
         <!-- Sets up the canvas relative to its width and heigh choosen -->
-        <div class="drawing-board">
-            <canvas class="canvas" id="drawingCanvas" width="1000" height="800"></canvas>
-        </div>
+            <canvas class="canvas" id="drawingCanvas" width="1000" height="700"></canvas>
     </section>
     <script src="./js scripts/draw.js"></script>
     <script src="./js scripts/prompt.js"></script>
