@@ -57,7 +57,7 @@ clearButton.addEventListener('click', function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears anything within the canvas width and height (so whole canvas)
     hasDrawing = false; // Goes back to you havent drawn
     ctx.fillStyle = '#FFFFFF'; // Set fill color to white
-ctx.fillRect(0, 0, canvas.width, canvas.height); // Gives canvas white backround
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // Gives canvas white backround
 });
 // Adds a event lister for the submit button
 submitButton.addEventListener('click', function () {
@@ -75,6 +75,8 @@ submitButton.addEventListener('click', function () {
         // add the new image to the array, and then save the entire array back to local storage to preserve previously saved images.
 
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears the entire canvas
+        ctx.fillStyle = '#FFFFFF'; // Set fill color to white
+        ctx.fillRect(0, 0, canvas.width, canvas.height); // Gives canvas white backround
         hasDrawing = false; // Goes back to you havent drawn anything
     }
 });

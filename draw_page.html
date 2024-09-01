@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <!-- Nav bar -->
     <nav>
         <ul class="nav-list">
             <li><a href="index.html">HOME</a></li>
@@ -16,26 +17,29 @@
             <li><a href="gallery.html">GALLERY</a></li>
         </ul>
     </nav>
-    <section class="container">
-        <div class="toolbar">
-            <!-- Create prompt label -->
-            <label id="promptLabel" for="prompt">Prompt:</label>
-            <!-- Creates a input for color picker, -->
-            <input type="color" id="stroke" name="stroke">
-            <!-- Creates a input for Line width -->
-            <input type="range" id="LineWidth" name="Linewidth" value="1" min="1">
-            <span id="LineWidthValue">1</span>
-            <!-- Creates the clear button -->
-            <button id="clear">Clear</button>
-            <!-- Creates the submit button -->
-            <button id="submit">Submit</button>
+
+    <!-- Drawing page content -->
+    <section>
+        <!-- Create prompt label -->
+        <label id="promptLabel" for="prompt">Prompt:</label>
+        <!-- Creates an input for color picker -->
+        <input type="color" id="stroke" name="stroke">
+        <!-- Creates an input for line width -->
+        <input type="range" id="LineWidth" name="Linewidth" value="1" min="1">
+        <span id="LineWidthValue">1</span>
+        <!-- Creates the clear button -->
+        <button id="clear">Clear</button>
+        <!-- Creates the submit button -->
+        <button id="submit">Submit</button>
+        <!-- Sets up the canvas relative to its width and height chosen -->
+        <div class="canvas-container">
+            <canvas class="canvas" id="drawingCanvas" width="1300" height="700"></canvas>
         </div>
-        <!-- Sets up the canvas relative to its width and heigh choosen -->
-            <canvas class="canvas" id="drawingCanvas" width="1000" height="700"></canvas>
     </section>
+
+    <!-- Scripts -->
     <script src="./js scripts/draw.js"></script>
     <script src="./js scripts/prompt.js"></script>
-
 </body>
 
 </html>
