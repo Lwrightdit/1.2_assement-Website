@@ -1,5 +1,5 @@
 /* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
 /* Css reset */
 *{
     margin: 0;
@@ -8,7 +8,8 @@
 
 /* Backround stuff for body */
 body{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
   line-height: 1.5;
   letter-spacing: 0.5px;
   background-image: url(./assests/colorful-line-doodle-seamless-pattern-creative-art-children-design-with-basic-shapes-childish-scribble-shape-vector-illustration-white-background_551826-21479.avif);
@@ -27,25 +28,32 @@ body{
 
 /* NAV BAR */
 nav {
-    background-color: #ffffff;
-    box-shadow: 0 0 10px 3px #0000009d;
-    padding: 10px;
-  }
+  background-color: rgb(55, 152, 177);
+  box-shadow: 0 0 10px 3px #0000009d;
+  padding: 10px;
+}
   
-  .nav-list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-  }
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  border-radius: 10px;
+}
   
-  .nav-list a {
-    color: #000000;
-    text-decoration: none;
-    font-size: 2rem;
-    margin: .5rem;
-    padding: .5rem;
-    text-decoration: none;
-  }
+.nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 40px;
+  margin: 15px;
+  padding: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease; 
+  border-radius: 20px;
+
+}
+.nav-list a:hover{
+  background-color: rgba(38, 103, 119, 0.516);
+}
 
   /* For drawing page */
 section{
@@ -54,14 +62,13 @@ section{
   align-items: center;
   margin-top: 10px;
   margin-left: 10px;
-
 }
   
 .canvas-container {
   display: flex;
   justify-content: center; 
   align-items: center; 
-  margin-top: 20px; 
+  margin-top: 10px; 
 }
 .canvas {
   border: 2px solid #F08080;
@@ -70,17 +77,19 @@ section{
 section label{
   margin-left: 250px;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 25px;
   padding: 10px;
   background-color: #F08080;
   border-radius: 10px;
   }
 
 section button{
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
   background-color: #F08080; 
   border: none; 
   color: #ffffff; 
-  font-size: 20px; 
+  font-size: 25px; 
   padding: 10px;
   border-radius: 5px; 
   cursor: pointer; 
