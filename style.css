@@ -25,12 +25,34 @@ body{
   border-radius: 10px;
   background-color: #F08080;
 }
+.carousel{
+  width: auto;
+  height: auto;
+  position: relative;
+}
+.slide{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.slide[data-active]{
+  opacity: 1;
+}
+/* Carousel buttons styling */
+.carousel-button {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10; /* Ensure buttons are on top of images */
+}
+.carousel-button.next {
+  right: 10px;
+}
 
 /* NAV BAR */
 nav {
   background-color: rgb(55, 152, 177);
   box-shadow: 0 0 10px 3px #0000009d;
-  padding: 10px;
+  padding: 5px;
 }
   
 .nav-list {
@@ -71,7 +93,7 @@ section{
   margin-top: 10px; 
 }
 .canvas {
-  border: 2px solid #F08080;
+  border: 3px solid #F08080;
 }
 
 section label{
