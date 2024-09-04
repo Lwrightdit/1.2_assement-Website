@@ -1,122 +1,186 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
 /* Css reset */
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Backround stuff for body */
-body{
+/* Background stuff for body */
+body {
   font-family: 'Baloo 2', sans-serif;
   font-weight: bold;
-  line-height: 1.5;
   letter-spacing: 0.5px;
-  background-image: url(./assests/colorful-line-doodle-seamless-pattern-creative-art-children-design-with-basic-shapes-childish-scribble-shape-vector-illustration-white-background_551826-21479.avif);
+  background-image: url(./assests/backround.avif);
 }
-/* gallery */
-.gallery-image{
-    border: solid, 2px, black;
-}
-.gallery-text{
-  margin-top: 20px;
-  color: #000000;
-  font-size: 30px;
-  border-radius: 10px;
-  background-color: #F08080;
-}
-.carousel{
-  width: auto;
-  height: auto;
+
+/* Gallery */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
-.slide{
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-.slide[data-active]{
-  opacity: 1;
-}
-/* Carousel buttons styling */
+
+/* Centres all my stuff */
+
 .carousel-button {
+  /* Styles gallery buttons */
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: bold;
+  background-color: #F08080;
+  color: #ffffff;
+  font-size: 60px;
+  padding: 0px 30px;
+  transition: background-color 0.3s ease;
+  /* Everything below here is so that the button is properly centered and not overshadowed by the carsouel slides */
   position: absolute;
-  cursor: pointer;
-  z-index: 10; /* Ensure buttons are on top of images */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
+
+.carousel-button.prev {
+  left: 10px;
+}
+
 .carousel-button.next {
   right: 10px;
 }
 
+/* These two parts forces the buttons to apear to the left and right of the carousel slides */
+
+.carousel-button:hover {
+  background-color: #d26969;
+}
+
+/* Button hover stuff */
+
+.gallery-text {
+  /* Stuff for all my gallery text */
+  color: #ffffff;
+  font-size: 25px;
+  padding: 10px;
+  background-color: #F08080;
+  border-radius: 10px;
+  width: fit-content;
+  margin: auto;
+  /* Stuff below help center it */
+  margin-top: 10px;
+  display: block;
+}
+
+/* All three of these blocks help style the slides like so V*/
+.slide[data-active] {
+  /* Makes sure the active slide is clear and visbile  */
+  opacity: 1;
+  position: relative;
+}
+
+
+.slide {
+  /* Sets all slides to start as hidden, see block above */
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  /* Makes sure images are centered inside the slides */
+  border: 3px solid #F08080;
+}
+
+.slide img {
+  /* Makes sure images are centered inside the slides */
+  display: block;
+}
+
 /* NAV BAR */
 nav {
+  /* This defines the backround stuff for the nav bar */
   background-color: rgb(55, 152, 177);
   box-shadow: 0 0 10px 3px #0000009d;
   padding: 5px;
 }
-  
+
 .nav-list {
   display: flex;
   justify-content: center;
   list-style: none;
   border-radius: 10px;
+  /* Centeres it and removes excess stuff*/
 }
-  
+
 .nav-list a {
+  /* Styling for links in nav bar*/
   color: #ffffff;
   text-decoration: none;
   font-size: 40px;
   margin: 15px;
   padding: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   border-radius: 20px;
-
 }
-.nav-list a:hover{
+
+.nav-list a:hover {
+  /* Adds hover effect for nav bar */
   background-color: rgba(38, 103, 119, 0.516);
 }
 
-  /* For drawing page */
-section{
+/* For drawing page */
+section {
+  /* Centeres items in the drawing page */
   display: block;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   margin-left: 10px;
 }
-  
+
 .canvas-container {
+  /* Centres the canvas properly */
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  margin-top: 10px; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
+
 .canvas {
   border: 3px solid #F08080;
 }
 
-section label{
+/* adds border color to canvas */
+
+section label {
+  /* Sets up styles for the prompt in the drawing page */
   margin-left: 250px;
   color: #ffffff;
   font-size: 25px;
   padding: 10px;
   background-color: #F08080;
   border-radius: 10px;
-  }
+}
 
-section button{
+section button {
+  /* Sets up styling for the buttons, bassicly the same as the ones in gallery */
   font-family: 'Baloo 2', sans-serif;
   font-weight: bold;
-  background-color: #F08080; 
-  border: none; 
-  color: #ffffff; 
-  font-size: 25px; 
+  background-color: #F08080;
+  border: none;
+  color: #ffffff;
+  font-size: 25px;
   padding: 10px;
-  border-radius: 5px; 
-  cursor: pointer; 
-  transition: background-color 0.3s ease; 
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-section button:hover{
-  background-color: #d26969; /* Darker coral on hover */
+
+section button:hover {
+  /* Button hover stuff */
+  background-color: #d26969;
+}
+
+/* Home page stuff */
+main img{
+  height: 500px;
+  border: solid 2px, #F08080;
 }

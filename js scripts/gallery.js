@@ -1,35 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const savedImages = JSON.parse(localStorage.getItem('savedImages')) || []; // Finds and retrieves saved images in local storage
-    const slidesElement = document.querySelector('ul[data-slides]'); // Selects the ul[data-slides] element for the images to be added
+document.addEventListener('DOMContentLoaded', initializeGallery);
+document.addEventListener('updateGallery', initializeGallery);
+// Adds two event listeners to link to html
+function initializeGallery() {
+    const savedImages = JSON.parse(localStorage.getItem('savedImages')) || []; // Gtes our saved canvas images from local storage
+    const slidesElement = document.querySelector('ul[data-slides]'); // This find were the slides go by seraching the html page
     
-    savedImages.forEach((imageData, index) => { // Loop through each saved image with its index
-        const imgElement = document.createElement('img');
-        imgElement.src = imageData; // This makes it so the img source is saved data URL from const imageData = canvas.toDataURL();
-        imgElement.classList.add('gallery-image'); // This adds the class gallery-image to each image so I can edit them with CSS
+    if (!slidesElement) return;// Makes sures there are slides to go through
+
+    slidesElement.innerHTML = ''; // Clears anything that was orignal in the slides
+
+    if (savedImages.length === 0) {// Checks if there are saved images for the slides
+        const noImagesMessage = document.createElement('li');// If no saved images makes a list element
+        noImagesMessage.textContent = 'No images available'; // Adds the text in the list that there is no images so user know
+        noImagesMessage.classList.add('slide');  // Gives the text a class content
+        noImagesMessage.dataset.active = true; // Sets no images message to active
+        slidesElement.appendChild(noImagesMessage);// Ands message to img container
+    } else { // If saved images run this
+        savedImages.forEach((imageData, index) => { // Loops for all the images
+            const slideElement = document.createElement('li'); // Creates list for all images
+            slideElement.classList.add('slide');// Adds the slide class to them
+            
+            const imgElement = document.createElement('img'); // Creates the image class for the images
+            imgElement.src = imageData;// Sets the source to the saved image data
+            imgElement.classList.add('gallery-image');// Adds gallery-image class for the images
+            
+            if (index === 0) slideElement.dataset.active = true; // Sets the first slide to be active
+
+            slideElement.appendChild(imgElement);// Add a saved image to the slide 
+            slidesElement.appendChild(slideElement);// Adds the slides into the slides container
+        });
+    }
+}
+
+const buttons = document.querySelectorAll("[data-carousel-button]"); // Gets the carousel buttons with the element data-carousel-button
+
+buttons.forEach(button => {// Runs for the loop for each button
+    button.addEventListener("click", () => {// Adds the listen for when people click the button
+        const offset = button.dataset.carouselButton === "next" ? 1 : -1; // Determines which direction to move the carousel via offset
+        const slides = button.closest("[data-carousel]").querySelector('[data-slides]');// Adds the closest element that has the data-carousel element then get the data-slides elemnt in them
         
-        const slideElement = document.createElement('li'); // Create a new li element for each image
-        slideElement.classList.add('slide'); // Adds the slide class so the carousel can work
-        if (index === 0) slideElement.dataset.active = true; // Make the first image be activated 
+        if (!slides || slides.children.length === 0) return;// Checks if the slides do exsit or not
 
-        slideElement.appendChild(imgElement); // Add the img element to the li.slide
-        slidesElement.appendChild(slideElement); // Add the li.slide to the ul[data-slides]
-    });
-    // This whole part basically goes through each saved image and creates an img element for them all
-});
+        const activeSlide = slides.querySelector("[data-active]"); // Finds what slide is active 
+        if (!activeSlide) return; // Finds if the avtive slide is found or not
 
-const buttons = document.querySelectorAll("[data-carousel-button]"); // Select all carousel buttons
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset;  // Finds the next slide by getting the index of current slide and adding a offset to it
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        const offset = button.dataset.carouselButton === "next" ? 1 : -1; // Determine if we move forward or backward
-        const slides = button.closest("[data-carousel]").querySelector('[data-slides]'); // Find the slides container
+        if (newIndex < 0) newIndex = slides.children.length - 1;// Goes to the last slide if we go beofre the first slide
+        if (newIndex >= slides.children.length) newIndex = 0;// Same thing as previous but oppsite
 
-        const activeSlide = slides.querySelector("[data-active]"); // Find the currently active slide
-        let newIndex = [...slides.children].indexOf(activeSlide) + offset; // Calculate the new slide index
-        if (newIndex < 0) newIndex = slides.children.length - 1; // Wrap around to the last slide if moving backward from the first slide
-        if (newIndex >= slides.children.length) newIndex = 0; // Wrap around to the first slide if moving forward from the last slide
-
-        slides.children[newIndex].dataset.active = true; // Set the new active slide
-        delete activeSlide.dataset.active; // Remove the active status from the previous slide
+        slides.children[newIndex].dataset.active = true;// Sets the new slides to be active
+        delete activeSlide.dataset.active;// Removes the active function from the previous slide
     });
 });
