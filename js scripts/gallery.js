@@ -47,9 +47,9 @@ buttons.forEach(button => {// Runs for the loop for each button
         let newIndex = [...slides.children].indexOf(activeSlide) + offset;  // Finds the next slide by getting the index of current slide and adding a offset to it
 
         if (newIndex < 0) newIndex = slides.children.length - 1;// Goes to the last slide if we go beofre the first slide
-        if (newIndex >= slides.children.length) newIndex = 0;// Same thing as previous but oppsite
+        if (newIndex >= slides.children.length) newIndex = 0;
 
-        slides.children[newIndex].dataset.active = true;// Sets the new slides to be active
-        delete activeSlide.dataset.active;// Removes the active function from the previous slide
+        slides.children[newIndex].dataset.active = true;
+        delete activeSlide.dataset.active;
     });
 });
