@@ -43,6 +43,10 @@ function draw(event) {
     ctx.lineWidth = lineWidthRange.value; // Width of the line based on what user picked
     ctx.lineCap = 'round'; // Smooth line endings 
 
+    if (!eraserActive) { //Changes depenind on drawing or not drawing so color picker works
+        ctx.strokeStyle = colorPicker.value; // Line color based on what the user picked
+    }
+
     // Draw a line to the current mouse position
     ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
     ctx.stroke(); // Render the line
@@ -81,10 +85,19 @@ submitButton.addEventListener('click', function () {
         hasDrawing = false; // Goes back to you havent drawn anything
     }
 });
+const targetSection = document.querySelector('.canvas-container'); // Target the canvas element (the class below get applyed to it) element
 // Adds draw and erase, pretty simple
 eraserButton.addEventListener('click', function () {
+    eraserActive = true; // Set eraser mode to active
     ctx.strokeStyle = 'white';
+    targetSection.classList.remove('draw-active');// Removes draw active incase its activated
+    targetSection.classList.toggle('erase-active'); // Toggle the erase-active class on the section
 });
+
 drawButton.addEventListener('click', function () {
-    ctx.strokeStyle = colorPicker.value; // Line color based on what the user picked
+    eraserActive = false// Sets eraser mode to of
+    // Set eraser mode to of
+    targetSection.classList.remove('erase-active');// Removes erase active incase its activated
+    targetSection.classList.toggle('draw-active'); // Toggle the draw-active class on the section
 });
+

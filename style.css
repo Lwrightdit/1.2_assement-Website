@@ -71,6 +71,7 @@ body {
 
 .gallery label {
   /* Stuff for all my gallery text */
+  border: 3px solid #d26969;
   color: #ffffff;
   font-size: 25px;
   padding: 10px;
@@ -161,7 +162,20 @@ section {
 .canvas {
   border: 3px solid #F08080;
 }
-
+.erase-active{
+  cursor: url('./assests/cursor_rubber.png') 5 25, auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.draw-active{
+  cursor: url('./assests/cursor_pencil.png') 5 25, auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
 .toolbar {
   gap: 5px;
   display: flex;
@@ -176,6 +190,8 @@ section label {
   padding: 10px;
   background-color: #F08080;
   border-radius: 10px;
+  border: 3px solid #d26969;
+
 }
 
 /* This stops buttons moving when sliders move */
@@ -196,6 +212,7 @@ section button {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  border: 3px solid #d26969;
   transition: transform 0.7s ease, box-shadow 0.7s ease;
 }
 
@@ -225,6 +242,7 @@ main p {
   text-align: center;
   max-width: 500px;
   height: fit-content;
+  border: 3px solid #d26969;
   transition: transform 0.7s ease, box-shadow 0.7s ease;
 }
 
@@ -232,7 +250,7 @@ main img {
   margin-top: 20px;
   height: 400px;
   width: 600px;
-  border: 10px solid #ffffff;
+  border: 7px solid #d26969;
   transition: transform 0.7s ease-in, box-shadow 0.7s ease-in, border 0.7s ease-in;
 }
 
@@ -256,6 +274,7 @@ main img:hover {
 }
 
 .tutorial h1 {
+  border: 3px solid #d26969;
   display: block;
   text-align: center;
   background-color: #F08080;
@@ -266,6 +285,7 @@ main img:hover {
 }
 
 .tutorial p {
+  border: 3px solid #d26969;
   color: #ffffff;
   font-size: 20px;
   padding: 20px;
@@ -279,8 +299,8 @@ main img:hover {
 }
 
 .tutorial img{
+  border: 7px solid #d26969;
   margin-top: 20px;
-  border: 10px solid #ffffff;
   transition: transform 0.7s ease-in, box-shadow 0.7s ease-in, border 0.7s ease-in;
 }
 .tutorial img:hover{
