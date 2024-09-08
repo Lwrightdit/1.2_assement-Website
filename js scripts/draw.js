@@ -4,6 +4,8 @@ const lineWidthRange = document.getElementById('LineWidth');
 const lineWidthValueLabel = document.getElementById('LineWidthValue');
 const clearButton = document.getElementById('clear');
 const submitButton = document.getElementById('submit');
+const eraserButton = document.getElementById('eraser')
+const drawButton = document.getElementById('draw')
 // Get the canvas element and its context
 const canvas = document.getElementById('drawingCanvas');
 const ctx = canvas.getContext('2d');
@@ -40,7 +42,6 @@ function draw(event) {
     // Set drawing parameters
     ctx.lineWidth = lineWidthRange.value; // Width of the line based on what user picked
     ctx.lineCap = 'round'; // Smooth line endings 
-    ctx.strokeStyle = colorPicker.value; // Line color based on what the user picked
 
     // Draw a line to the current mouse position
     ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
@@ -79,4 +80,11 @@ submitButton.addEventListener('click', function () {
         ctx.fillRect(0, 0, canvas.width, canvas.height); // Gives canvas white backround
         hasDrawing = false; // Goes back to you havent drawn anything
     }
+});
+// Adds draw and erase, pretty simple
+eraserButton.addEventListener('click', function () {
+    ctx.strokeStyle = 'white';
+});
+drawButton.addEventListener('click', function () {
+    ctx.strokeStyle = colorPicker.value; // Line color based on what the user picked
 });

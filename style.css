@@ -11,6 +11,7 @@
 /* Hover effects, i tested this in home page and i had to make it for prompts */
 .prompt {
   transition: transform 0.7s ease, box-shadow 0.7s ease;
+  display: inline-block;
 }
 
 .prompt:hover {
@@ -81,7 +82,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   display: block;
-  
+
 }
 
 /* All three of these blocks help style the slides like so V*/
@@ -156,20 +157,32 @@ section {
   margin-top: 10px;
 }
 
+/* adds border color to canvas */
 .canvas {
   border: 3px solid #F08080;
 }
 
-/* adds border color to canvas */
+.toolbar {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 section label {
   /* Sets up styles for the prompt in the drawing page */
-  margin-left: 250px;
   color: #ffffff;
   font-size: 25px;
   padding: 10px;
   background-color: #F08080;
   border-radius: 10px;
+}
+
+/* This stops buttons moving when sliders move */
+.slider-container {
+  display: inline-block;
+  width: 160px;
+  vertical-align: middle;
 }
 
 section button {
@@ -197,7 +210,6 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
   justify-content: center;
   margin: auto;
 }
@@ -205,17 +217,19 @@ main {
 
 main p {
   color: #ffffff;
-  font-size: 25px;
-  padding: 15px;
+  font-size: 27px;
+  padding: 20px;
+  margin-top: 20px;
   background-color: #F08080;
   border-radius: 10px;
   text-align: center;
+  max-width: 500px;
   height: fit-content;
-  max-width: 400px;
   transition: transform 0.7s ease, box-shadow 0.7s ease;
 }
 
 main img {
+  margin-top: 20px;
   height: 400px;
   width: 600px;
   border: 10px solid #ffffff;
@@ -227,23 +241,55 @@ main img:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-main img:hover{
+
+main img:hover {
   border-color: transparent;
-  border-width: 0px; 
+  border-width: 0px;
 }
 
-.tutorial {
+.tutorial{
+  margin-top: 30px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .tutorial h1 {
+  display: block;
+  text-align: center;
+  background-color: #F08080;
+  color: white;
+  font-size: 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tutorial p {
+  color: #ffffff;
+  font-size: 20px;
+  padding: 20px;
   margin-top: 20px;
   background-color: #F08080;
-  padding: 5px;
-  color: white;
-  font-size: 30px;
-  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 1400px;
+  height: fit-content;
+  transition: transform 0.7s ease, box-shadow 0.7s ease;
+}
+
+.tutorial img{
+  margin-top: 20px;
+  border: 10px solid #ffffff;
+  transition: transform 0.7s ease-in, box-shadow 0.7s ease-in, border 0.7s ease-in;
+}
+.tutorial img:hover{
+  border-color: transparent;
+  border-width: 0px;
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.tutorial p:hover{
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }

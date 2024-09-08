@@ -155,7 +155,8 @@ const prompts = [
     "Create a whimsical underwater world.",
     "Draw a detailed cosmic landscape.",
     "Illustrate a unique alien city.",
-    "Design a legendary enchanted artifact."
+    "Design a legendary enchanted artifact.",
+    "Red panda"
 ];
 
 // Sets up libary of prompts
