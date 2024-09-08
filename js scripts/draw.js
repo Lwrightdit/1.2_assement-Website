@@ -17,10 +17,13 @@ let drawing = false;
 //Varible to see if the user has started drawing
 let hasDrawing = false;
 
-// Add event listeners for mouse events and gives each one a function
+// Add event listeners for mouse events and touch screen events and gives each one a function
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('touchstart', startDrawingTouch);
+canvas.addEventListener('touchend', stopDrawing);
+canvas.addEventListener('touchmove', drawTouch)
 
 // Function to start drawing
 function startDrawing(event) {
@@ -57,7 +60,7 @@ function draw(event) {
 lineWidthRange.addEventListener('input', function () {
     lineWidthValueLabel.textContent = this.value; //Changes the line width label to the line width value so its updated
 });
-// Adds a event listen so when the clear button is clicked it will call this function
+// Adds a event listen so when the clear buttlon is clicked it will call this function
 clearButton.addEventListener('click', function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears anything within the canvas width and height (so whole canvas)
     hasDrawing = false; // Goes back to you havent drawn
@@ -101,3 +104,30 @@ drawButton.addEventListener('click', function () {
     targetSection.classList.toggle('draw-active'); // Toggle the draw-active class on the section
 });
 
+// These functions allow touch screen drawings
+function startDrawingTouch(event) {
+    event.preventDefault(); // This stops you from scrolling while drawing
+    drawing = true;
+    hasDrawing = true; // Shows the user has started drawing
+    drawTouch(event); // Makes sure even if you tap once it will draw (same as mouse drawing code)
+}
+
+function drawTouch(event) {
+    if (!drawing) return; // Does nothing if the user isnet drawingc (same as mouse)
+
+    const touch = event.touches[0]; // Get the first point that they touch
+
+    // Set drawing parameters
+    ctx.lineWidth = lineWidthRange.value; // Width of the line based on what user picked
+    ctx.lineCap = 'round'; // Smooth line endings
+
+    if (!eraserActive) {
+        ctx.strokeStyle = colorPicker.value; // Line color based on what the user picked
+    }
+
+    // This draws a line to were on the canvas is being touched
+    ctx.lineTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+    ctx.stroke(); // This reneders the lie, same as mouse drawing 
+    ctx.beginPath(); // Start a new path to prevent continuous lines
+    ctx.moveTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop); // Moves to whereer they next touch
+}
