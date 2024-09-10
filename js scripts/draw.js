@@ -88,7 +88,7 @@ submitButton.addEventListener('click', function () {
         hasDrawing = false; // Goes back to you havent drawn anything
     }
 });
-const targetSection = document.querySelector('.canvas-container'); // Target the canvas element (the class below get applyed to it) element
+const targetSection = document.querySelector('.canvas'); // Target the canvas element (the class below get applyed to it) element
 // Adds draw and erase, pretty simple
 eraserButton.addEventListener('click', function () {
     eraserActive = true; // Set eraser mode to active

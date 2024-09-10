@@ -122,6 +122,7 @@ nav {
   list-style: none;
   border-radius: 10px;
   /* Centeres it and removes excess stuff*/
+  margin: 2px;
 }
 
 .nav-list a {
@@ -129,7 +130,6 @@ nav {
   color: #ffffff;
   text-decoration: none;
   font-size: 40px;
-  margin: 15px;
   padding: 10px;
   transition: background-color 0.7s ease;
   border-radius: 30px;
@@ -162,20 +162,15 @@ section {
 .canvas {
   border: 3px solid #F08080;
 }
-.erase-active{
+
+.erase-active {
   cursor: url('./assests/cursor_rubber.png') 5 25, auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
 }
-.draw-active{
+
+.draw-active {
   cursor: url('./assests/cursor_pencil.png') 5 25, auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
 }
+
 .toolbar {
   gap: 5px;
   display: flex;
@@ -200,6 +195,22 @@ section label {
   width: 160px;
   vertical-align: middle;
 }
+
+/* This is for my slider */
+/* Customize the slider button */
+input[type="range"]::-webkit-slider-thumb {
+  background: #FF6347;
+  /* Color of the slider thumb */
+  cursor: pointer;
+  /* Cursor changes to pointer when hovered */
+}
+
+/* Customize the slider track were the button goes along */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #F08080;
+  border-radius: 10px;
+}
+
 
 section button {
   /* Sets up styling for the buttons, bassicly the same as the ones in gallery */
@@ -229,6 +240,12 @@ main {
   gap: 20px;
   justify-content: center;
   margin: auto;
+}
+
+/* Remove background image in the home page */
+body.home {
+  background-image: none !important;
+  background-color: #fff;
 }
 
 
@@ -265,7 +282,7 @@ main img:hover {
   border-width: 0px;
 }
 
-.tutorial{
+.tutorial {
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
@@ -298,18 +315,20 @@ main img:hover {
   transition: transform 0.7s ease, box-shadow 0.7s ease;
 }
 
-.tutorial img{
+.tutorial img {
   border: 7px solid #d26969;
   margin-top: 20px;
   transition: transform 0.7s ease-in, box-shadow 0.7s ease-in, border 0.7s ease-in;
 }
-.tutorial img:hover{
+
+.tutorial img:hover {
   border-color: transparent;
   border-width: 0px;
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-.tutorial p:hover{
+
+.tutorial p:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
