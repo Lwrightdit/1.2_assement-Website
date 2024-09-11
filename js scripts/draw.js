@@ -9,6 +9,8 @@ const drawButton = document.getElementById('draw')
 // Get the canvas element and its context
 const canvas = document.getElementById('drawingCanvas');
 const ctx = canvas.getContext('2d');
+const targetSection = document.querySelector('.canvas'); // Target the canvas element (the class below get applyed to it) element
+
 
 ctx.fillStyle = '#FFFFFF'; // Set fill color to white
 ctx.fillRect(0, 0, canvas.width, canvas.height); // Gives canvas white backround
@@ -55,6 +57,7 @@ function draw(event) {
     ctx.stroke(); // Render the line
     ctx.beginPath(); // Start a new path to prevent continuous lines
     ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop); // Move to the new mouse position
+    
 }
 // Addevent lister so when the line width is changed this will be called
 lineWidthRange.addEventListener('input', function () {
@@ -88,7 +91,6 @@ submitButton.addEventListener('click', function () {
         hasDrawing = false; // Goes back to you havent drawn anything
     }
 });
-const targetSection = document.querySelector('.canvas'); // Target the canvas element (the class below get applyed to it) element
 // Adds draw and erase, pretty simple
 eraserButton.addEventListener('click', function () {
     eraserActive = true; // Set eraser mode to active

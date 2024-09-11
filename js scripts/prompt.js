@@ -1,5 +1,5 @@
 const prompts = [
-    // Existing prompts...
+    // Existing prompts from chat gpt...
     "Draw your favorite animal.",
     "Sketch a scene from your favorite movie.",
     "Create a fantasy landscape.",

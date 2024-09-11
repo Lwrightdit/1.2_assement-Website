@@ -4,7 +4,7 @@ document.addEventListener('updateGallery', initializeGallery);
 function initializeGallery() {
     const savedImages = JSON.parse(localStorage.getItem('savedImages')) || []; // Gtes our saved canvas images from local storage
     const slidesElement = document.querySelector('ul[data-slides]'); // This find were the slides go by seraching the html page
-    
+
     if (!slidesElement) return;// Makes sures there are slides to go through
 
     slidesElement.innerHTML = ''; // Clears anything that was orignal in the slides
@@ -19,11 +19,11 @@ function initializeGallery() {
         savedImages.forEach((imageData, index) => { // Loops for all the images
             const slideElement = document.createElement('li'); // Creates list for all images
             slideElement.classList.add('slide');// Adds the slide class to them
-            
+
             const imgElement = document.createElement('img'); // Creates the image class for the images
             imgElement.src = imageData;// Sets the source to the saved image data
             imgElement.classList.add('gallery-image');// Adds gallery-image class for the images
-            
+
             if (index === 0) slideElement.dataset.active = true; // Sets the first slide to be active
 
             slideElement.appendChild(imgElement);// Add a saved image to the slide 
@@ -38,7 +38,7 @@ buttons.forEach(button => {// Runs for the loop for each button
     button.addEventListener("click", () => {// Adds the listen for when people click the button
         const offset = button.dataset.carouselButton === "next" ? 1 : -1; // Determines which direction to move the carousel via offset
         const slides = button.closest("[data-carousel]").querySelector('[data-slides]');// Adds the closest element that has the data-carousel element then get the data-slides elemnt in them
-        
+
         if (!slides || slides.children.length === 0) return;// Checks if the slides do exsit or not
 
         const activeSlide = slides.querySelector("[data-active]"); // Finds what slide is active 

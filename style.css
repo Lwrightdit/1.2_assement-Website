@@ -114,6 +114,7 @@ nav {
   background-color: rgb(55, 152, 177);
   box-shadow: 0 0 10px 3px #0000009d;
   padding: 10px;
+  
 }
 
 .nav-list {
@@ -133,6 +134,7 @@ nav {
   padding: 10px;
   transition: background-color 0.7s ease;
   border-radius: 30px;
+  margin: 10px;
 }
 
 .nav-list a:hover {
@@ -245,7 +247,7 @@ main {
 /* Remove background image in the home page */
 body.home {
   background-image: none !important;
-  background-color: #fff;
+  background-color: rgb(219, 255, 251);
 }
 
 
